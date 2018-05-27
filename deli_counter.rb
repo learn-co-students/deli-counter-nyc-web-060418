@@ -2,6 +2,7 @@
 katz_deli = []
 
 def line(current_line)
+  require 'pry'
   place_in_line = []
   if current_line.length == 0
     puts "The line is currently empty."
@@ -10,6 +11,8 @@ def line(current_line)
       place_in_line.push("The line is currently: #{index}. #{person}")
     end
   end
+  return place_in_line
+      binding.pry
 end
 
 def take_a_number(katz_deli, name)
@@ -17,11 +20,9 @@ def take_a_number(katz_deli, name)
     puts "Welcome, #{name}. You are number 1 in line."
   else
   line_length = katz_deli.length + 1
-    name.each do |each_name|
-    puts "Welcome, #{each_name}. You are number #{line_length} in line."
-    katz_deli.push(each_name)
-   end
-  end
+    puts "Welcome, #{name}. You are number #{line_length} in line."
+    katz_deli.push(name)
+ end
   return katz_deli
 end
 
